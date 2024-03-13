@@ -1,0 +1,5 @@
+.header {
+	margin: calc(var(--mb-1) + var(--mb-0-25));
+	display: flex;
+	justify-content: space-between;
+}

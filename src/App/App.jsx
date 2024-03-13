@@ -1,11 +1,11 @@
-import './App.css'
+import { ToggleProvider } from '../utils/context/ToggleContext/ToggleContext'
 import AppUI from './AppUI'
 
 function App() {
 	return (
-		<>
+		<ToggleProvider>
 			<AppUI />
-		</>
+		</ToggleProvider>
 	)
 }
 

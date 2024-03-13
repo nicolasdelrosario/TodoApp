@@ -1,0 +1,7 @@
+.theme__toggle {
+	display: none;
+}
+
+.theme__toggle + label {
+	cursor: pointer;
+}
