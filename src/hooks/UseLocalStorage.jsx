@@ -7,11 +7,28 @@ function UseLocalStorage(itemName, initialValue) {
 
 	useEffect(() => {
 		try {
+			const localStorageItem = localStorage.getItem(itemName)
+			let parsedItem
+
+			if (!localStorageItem) {
+				localStorage.setItem('TODOS', JSON.stringify(initialValue))
+				parsedItem = initialValue
+			} else {
+				parsedItem = JSON.parse(localStorageItem)
+				setItem(parsedItem)
+			}
 		} catch (error) {
 			setLoading(false)
 			setError(true)
 		}
 	}, [])
+
+	const saveItem = newItem => {
+		localStorage.setItem('TODOS', JSON.stringify(newItem))
+		setItem(newItem)
+	}
+
+	return [{ item, saveItem, loading, error }]
 }
 
 export default UseLocalStorage
