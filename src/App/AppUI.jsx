@@ -1,6 +1,9 @@
 import { useContext } from 'react'
 import { ToggleContext } from '../utils/context/ToggleContext/ToggleContext'
 import Header from '../components/Header/Header'
+import TodoList from '../components/TodoList/TodoList'
+import TodoItem from '../components/TodoItem/TodoItem'
+import dataExample from '../data/data'
 
 function AppUI() {
 	const { isEnabled } = useContext(ToggleContext)
@@ -13,6 +16,16 @@ function AppUI() {
 		>
 			<div className='container'>
 				<Header />
+
+				<TodoList>
+					{dataExample.map(todo => (
+						<TodoItem
+							key={todo.text}
+							text={todo.text}
+							completed={todo.completed}
+						/>
+					))}
+				</TodoList>
 			</div>
 
 			<div
